@@ -7,18 +7,25 @@ document.getElementById('myForm').addEventListener('submit', async (e) => {
 
   // 發送到 Google Apps Script 的 Web App
   try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbyWA1bO0KEQXAfboBomZM-vjAaeuZMLkIk_Sbq01nsceVnkJ_3KHEA3P4cc_EbOC7ts3g/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbyKfKy-xbVAgQ3ziLy4GIXQ7uc0lCuEuW6Gs0l4RUrxB5dX_kxLiGbPm0HYTfHJXMddDw/exec', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' }
     });
 
     const result = await response.json();
-    document.getElementById('response').innerText = result.status === 'success' 
-      ? 'Submission successful!' 
-      : 'Submission failed!';
+
+    // 顯示提交結果
+    if (result.status === 'success') {
+      document.getElementById('response').innerText = 'Submission successful!';
+    } else {
+      document.getElementById('response').innerText = 'Submission failed!';
+    }
+
+    console.log('Response from Google Apps Script:', result);
   } catch (error) {
     console.error('Error:', error);
     document.getElementById('response').innerText = 'Error occurred!';
   }
 });
+

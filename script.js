@@ -20,8 +20,4 @@ document.getElementById('myForm').addEventListener('submit', async (e) => {
     console.log(result);
     alert('Form submitted successfully!'); // 顯示提交成功的提示
 
-  } catch (error) {
-    console.error('Error:', error);
-    alert('Form submission failed. Please try again.');
-  }
-});
+  } 

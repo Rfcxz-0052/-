@@ -12,12 +12,4 @@ document.getElementById('myForm').addEventListener('submit', async (e) => {
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' }
     });
-
-    // 處理回應
-    const result = await response.json();
-
-    // 可以在此處處理回應結果
-    console.log(result);
-    alert('Form submitted successfully!'); // 顯示提交成功的提示
-
-  } 
+    

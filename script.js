@@ -24,7 +24,6 @@ document.getElementById('myForm').addEventListener('submit', async (e) => {
 
     console.log('Response from Google Apps Script:', result);
   } catch (error) {
-    console.error('Error:', error);
     document.getElementById('response').innerText = 'Error occurred!';
   }
 });

@@ -12,4 +12,15 @@ document.getElementById('myForm').addEventListener('submit', async (e) => {
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' }
     });
-    
+
+    // Handle the response
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      console.log('Success:', jsonResponse);
+    } else {
+      console.error('Error:', response.statusText);
+    }
+  } catch (error) {
+    console.error('Request failed', error);
+  }
+});

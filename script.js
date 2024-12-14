@@ -14,17 +14,3 @@ document.getElementById('myForm').addEventListener('submit', async (e) => {
     });
 
     const result = await response.json();
-
-    // 顯示提交結果
-    if (result.status === 'success') {
-      document.getElementById('response').innerText = 'Submission successful!';
-    } else {
-      document.getElementById('response').innerText = 'Submission failed!';
-    }
-
-    console.log('Response from Google Apps Script:', result);
-  } catch (error) {
-    document.getElementById('response').innerText = 'Error occurred!';
-  }
-});
-

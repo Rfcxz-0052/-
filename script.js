@@ -7,7 +7,7 @@ document.getElementById('myForm').addEventListener('submit', async (e) => {
 
   // 發送到 Google Apps Script 的 Web App
   try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbwUzV8qFrUCS9qUbfruC5XN13HMrD1p19bf-YLzbAR_6-NEjkFhqnw20l-QPQ6QPA2Fjw/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbxUpoWzxcDaCugHPozx8UuFtQ2Clf3Si_PcTVCj_YADcUH4Zi5oSrrky1pVCz9jGyfHTg/exec', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' }

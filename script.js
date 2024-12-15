@@ -1,26 +1,27 @@
 document.getElementById('myForm').addEventListener('submit', async (e) => {
-  e.preventDefault(); // 阻止表單預設提交行為
+  e.preventDefault();
 
-  // 獲取表單資料
   const formData = new FormData(e.target);
   const data = Object.fromEntries(formData.entries());
 
-  // 發送到 Google Apps Script 的 Web App
   try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbyKfKy-xbVAgQ3ziLy4GIXQ7uc0lCuEuW6Gs0l4RUrxB5dX_kxLiGbPm0HYTfHJXMddDw/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbzImQFcboeBucdGJuztW2CM66IsqeA7plHOCeY5E0qbEldZynGCGSBBkYM9FgpkxTN2MA/exec', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' }
     });
 
-    // Handle the response
     if (response.ok) {
       const jsonResponse = await response.json();
       console.log('Success:', jsonResponse);
+      document.getElementById('response').textContent = '提交成功！';
     } else {
       console.error('Error:', response.statusText);
+      document.getElementById('response').textContent = '提交失敗！';
     }
   } catch (error) {
     console.error('Request failed', error);
+    document.getElementById('response').textContent = '發送請求失敗！';
   }
 });
+
